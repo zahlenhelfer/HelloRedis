@@ -1,6 +1,16 @@
-javaclient:
-  build: .
-  links:
-    - redis:redisdb
-redis:
-  image: redis
+version: "3"
+services:
+  javaclient:
+    build: .
+    network:
+      - helloredis-net
+    depends_on:
+      - redis
+  redis:
+    image: redis
+    container_name: redisdb
+    networks:
+      - webnet
+      
+networks:
+  helloredis-net:
