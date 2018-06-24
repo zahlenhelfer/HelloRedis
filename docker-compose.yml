@@ -2,7 +2,7 @@ version: "3"
 services:
   javaclient:
     build: .
-    network:
+    networks:
       - helloredis-net
     depends_on:
       - redis
@@ -10,7 +10,7 @@ services:
     image: redis
     container_name: redisdb
     networks:
-      - webnet
+      - helloredis-net
       
 networks:
   helloredis-net:
