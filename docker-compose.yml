@@ -1,7 +1,13 @@
 version: "3"
 services:
   javaclient:
-    build: .
+    build: ./JavaGetter
+    networks:
+      - helloredis-net
+    depends_on:
+      - redis
+  java_client_setter:
+    build: ./JavaSetter
     networks:
       - helloredis-net
     depends_on:
